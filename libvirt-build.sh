@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Author: Mikhail Nosov (drdeimosnn@gmail.com)
+# Build libvirt package from source
+
 if [ ! -f "$1" ]; then
   echo 'Please enter qemu source tar.xz file as 1st arg'
   exit

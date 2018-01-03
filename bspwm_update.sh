@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Author: Mikhail Nosov (drdeimosnn@gmail.com)
 # Build packages bspwm and sxhkd with hcheckinstall for ubuntu 16.04
 # bspwm: https://github.com/baskerville/bspwm.git
 # sxhkd: https://github.com/baskerville/sxhkd.git

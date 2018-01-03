@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Author: Mikhail Nosov (drdeimosnn@gmail.com)
 # This script clone index settings and mapping FROM ES
 # TO another ES in template.
 # Create empty index wit date in name.
