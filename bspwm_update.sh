@@ -21,6 +21,7 @@ apt -y upgrade
 PACDIR="$1"
 MAINTAINER="drdeimosnn@gmail.com"
 RELEASE=$(date '+%Y%m%d%H%M%S')
+COMMON_BUILD_DEPS="git make gcc checkinstall"
 
 ### BUILD BSPWM ###
 BSPWM_BUILD_DIR=$(mktemp -d)
@@ -30,14 +31,14 @@ BSPWM_DESCRIPTION="A tiling window manager based on binary space partitioning"
 BSPWM_REPO="https://github.com/baskerville/bspwm.git"
 
 apt update
-apt install -y $BSPWM_BUILD_DEPS
+apt install -y ${COMMON_BUILD_DEPS} $BSPWM_BUILD_DEPS
 
 git clone $BSPWM_REPO $BSPWM_BUILD_DIR
 cd $BSPWM_BUILD_DIR
 VERSION=$(git describe --long)
 make
 echo $BSPWM_DESCRIPTION > description-pak
-sudo checkinstall --pkgname bspwm \
+checkinstall --pkgname bspwm \
   --maintainer $MAINTAINER \
   --provides bspwm \
   --requires "$BSPWM_REQUIRES" \
@@ -66,7 +67,7 @@ VERSION=$(git describe --long)
 make
 
 echo $SXHKD_DESCRIPTION > description-pak
-sudo checkinstall --pkgname sxhkd \
+checkinstall --pkgname sxhkd \
   --maintainer $MAINTAINER \
   --provides sxhkd \
   --requires "$SXHKD_REQUIRES" \
