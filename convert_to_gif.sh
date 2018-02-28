@@ -11,25 +11,26 @@ OUTFILE=${2}
 PALETE="/tmp/$(makepasswd --chars=20).png"
 STARTPOS=${3:-"00:00:00"}
 DURATION=${4:-"NONE"}
+FPS=15
 
 function convert {
   INFILE=${1}
   if [ ${DURATION} != "NONE" ];then
-    ffmpeg -ss ${STARTPOS} -t ${DURATION} -i ${INFILE} -vf \
-      fps=15,scale=320:-1:flags=lanczos,palettegen ${PALETE}
-    ffmpeg -ss ${STARTPOS} -t ${DURATION} -i ${INFILE} -i ${PALETE} \
-      -filter_complex "fps=15,scale=400:-1:flags=lanczos[x];[x][1:v]paletteuse" ${OUTFILE}
+    ffmpeg -ss ${STARTPOS} -t ${DURATION} -i "${INFILE}" -vf \
+      fps=${FPS},scale=320:-1:flags=lanczos,palettegen ${PALETE}
+    ffmpeg -ss ${STARTPOS} -t ${DURATION} -i "${INFILE}" -i ${PALETE} \
+      -filter_complex "fps=${FPS},scale=400:-1:flags=lanczos[x];[x][1:v]paletteuse" "${OUTFILE}"
   else
-    ffmpeg -ss ${STARTPOS} -i ${INFILE} -vf \
-      fps=15,scale=320:-1:flags=lanczos,palettegen ${PALETE}
-    ffmpeg -ss ${STARTPOS} -i ${INFILE} -i ${PALETE} \
-      -filter_complex "fps=15,scale=400:-1:flags=lanczos[x];[x][1:v]paletteuse" ${OUTFILE}
+    ffmpeg -ss ${STARTPOS} -i "${INFILE}" -vf \
+      fps=${FPS},scale=320:-1:flags=lanczos,palettegen ${PALETE}
+    ffmpeg -ss ${STARTPOS} -i "${INFILE}" -i ${PALETE} \
+      -filter_complex "fps=${FPS},scale=400:-1:flags=lanczos[x];[x][1:v]paletteuse" "${OUTFILE}"
   fi
 }
 
 
 if [ $# -gt 1 ];then
-  convert ${INFILE}
+  convert "${INFILE}"
 else
   echo $#
   echo "Usage: $0 <input_file> <output_file>"
