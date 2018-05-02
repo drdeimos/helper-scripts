@@ -16,8 +16,8 @@ RELEASE=$(date '+%Y%m%d%H%M%S')
 
 ### BUILD BSPWM ###
 BUILD_DIR=$(mktemp -d)
-REQUIRES="libxcb-xkb1 libxcb-randr0 xcb-proto libxcb-ewmh2 libxcb-icccm4 python-xcbgen libiw30"
-BUILD_DEPS="cmake libxcb-xkb-dev libxcb-randr0-dev libxcb-render-util0-dev libxcb-icccm4-dev libxcb-ewmh-dev python-xcbgen libiw-dev libasound2-dev libcurl4-openssl-dev pkg-config"
+REQUIRES="libxcb-xkb1 libxcb-randr0 xcb-proto libxcb-ewmh2 libxcb-icccm4 python-xcbgen libiw30 libxcb-image0"
+BUILD_DEPS="cmake libxcb-xkb-dev libxcb-randr0-dev libxcb-render-util0-dev libxcb-icccm4-dev libxcb-ewmh-dev python-xcbgen libiw-dev libasound2-dev libcurl4-openssl-dev pkg-config libcairo2-dev libxcb-image0-dev"
 DESCRIPTION="Polybar aims to help users build beautiful and highly customizable status bars for their desktop environment, without the need of having a black belt in shell scripting."
 REPO="https://github.com/jaagr/polybar.git"
 
@@ -32,7 +32,7 @@ cd build
 cmake --prefix=/usr ..
 make install
 echo $DESCRIPTION > description-pak
-sudo checkinstall --pkgname polybar \
+checkinstall --pkgname polybar \
   --maintainer $MAINTAINER \
   --provides polybar \
   --requires $(echo $REQUIRES |tr ' ' ',' ) \
