@@ -1,1 +1,9 @@
+/build-bspwm/src
+/build-bspwm/bspwm_*.changes
+/build-bspwm/bspwm_*.deb
+/build-bspwm/bspwm_*.dsc
+/build-bspwm/bspwm_*.tar.gz
+/build-bspwm/bspwm_*.tar.xz
+/build-bspwm/bspwm_*.build
+/build-bspwm/bspwm_*.upload
 *.swp

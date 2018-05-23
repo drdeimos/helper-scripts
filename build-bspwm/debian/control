@@ -1,0 +1,11 @@
+Source: bspwm
+Section: universe/x11
+Priority: extra
+Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
+Build-Depends: debhelper, libxcb-xinerama0-dev, libxcb-icccm4-dev, libxcb-randr0-dev, libxcb-util-dev, libxcb-ewmh-dev, libxcb-keysyms1-dev
+Standards-Version: 3.9.7
+
+Package: bspwm
+Architecture: amd64
+Depends: libc6, libxcb1, libxau6, libxcb-ewmh2, libxcb-icccm4, libxcb-keysyms1, libxcb-randr0, libxcb-util1, libxcb-xinerama0, libxdmcp6
+Description: A tiling window manager based on binary space partitioning
