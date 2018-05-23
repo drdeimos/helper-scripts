@@ -20,7 +20,7 @@ apt -y upgrade
 
 PACDIR="$1"
 MAINTAINER="drdeimosnn@gmail.com"
-RELEASE=$(date '+%Y%m%d%H%M%S')
+RELEASE="$(awk -F '=' '/CODENAME/ {print $2}' /etc/lsb-release)-$(date '+%Y%m%d%H%M%S')"
 COMMON_BUILD_DEPS="git make gcc checkinstall"
 
 ### BUILD BSPWM ###
