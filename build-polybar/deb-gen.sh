@@ -10,13 +10,15 @@ rm -vf *.build *.changes *.dsc *.tar.gz *.tar.xz *.upload
 if [ -d ${SRCDIR} ]; then
   cd ${SRCDIR}
   git clean -fd
-  git checkout .
   git checkout master
+  git checkout .
   git pull --recurse-submodules
+  git checkout c2ac93db5533d2424e16a399d6777bb4caf2aace
 else
   git clone https://github.com/jaagr/polybar.git ${SRCDIR}
   cd ${SRCDIR}
   git submodule update --init --recursive
+  git checkout c2ac93db5533d2424e16a399d6777bb4caf2aace
 fi
 
 cd ${WORKDIR}
@@ -31,7 +33,6 @@ cat debian/changelog.tpl | envsubst | tee -a ${SRCDIR}/debian/changelog
 cd ${SRCDIR}
 tar -zcpf ../polybar_${VERSION}.orig.tar.gz .
 
-export PREFIX=/usr
 debuild -S
 
 cd ${WORKDIR}

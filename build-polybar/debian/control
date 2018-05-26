@@ -2,7 +2,7 @@ Source: polybar
 Section: universe/x11
 Priority: extra
 Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
-Build-Depends: debhelper, libxcb-xinerama0-dev, cmake, libxcb-xkb-dev, libxcb-randr0-dev, libxcb-render-util0-dev, libxcb-icccm4-dev, libxcb-ewmh-dev, python-xcbgen, libiw-dev, libasound2-dev, libcurl4-openssl-dev, pkg-config, libcairo2-dev, libxcb-image0-dev, fontconfig, git, libxcb-util-dev, libpulse-dev, libxcb-cursor-dev
+Build-Depends: debhelper, libxcb-xinerama0-dev, cmake, libxcb-xkb-dev, libxcb-randr0-dev, libxcb-render-util0-dev, libxcb-icccm4-dev, libxcb-ewmh-dev, python-xcbgen, libiw-dev, libasound2-dev, libcurl4-openssl-dev, pkg-config, libcairo2-dev, libxcb-image0-dev, fontconfig, git, libxcb-util-dev, libpulse-dev, libxcb-cursor-dev, xcb-proto
 Standards-Version: 3.9.7
 Homepage: https://github.com/jaagr/polybar
 

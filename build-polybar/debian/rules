@@ -8,10 +8,10 @@
 
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
-export PREFIX=/usr
 
 %:
 	dh $@
 
 override_dh_auto_build:
-	make -j4
+	cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr .
+	make
