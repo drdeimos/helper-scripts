@@ -1,4 +1,4 @@
-# helper-scripts
+# Helper-scripts
 Some useful (or not) scripts.
 
 * **bspwm_update.sh** - clone [bspwm](https://github.com/baskerville/bspwm) and [sxhkd](https://github.com/baskerville/sxhkd) packages and build it
@@ -8,3 +8,6 @@ Some useful (or not) scripts.
 * **qemu-build.sh** - build qemu from source
 
 Recommendations: use build scripts in docker
+
+### Builded packages
+[PPA for Ubuntu](https://launchpad.net/~drdeimosnn/+archive/ubuntu/survive-on-wm) with some packages from this repo.
