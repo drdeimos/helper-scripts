@@ -1,4 +1,4 @@
-sxhkd (${VERSION}-${CODENAME}${RELEASE}) ${CODENAME}; urgency=medium
+sxhkd (${VERSION}-${CODENAME}) ${CODENAME}; urgency=medium
 
   * Make deb package
 

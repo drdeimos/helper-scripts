@@ -4,6 +4,7 @@ Priority: extra
 Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
 Build-Depends: debhelper, libpam0g-dev
 Standards-Version: 3.9.7
+Homepage: https://github.com/drdeimos/physlock
 
 Package: physlock
 Architecture: amd64

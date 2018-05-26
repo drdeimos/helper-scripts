@@ -1,4 +1,4 @@
-physlock (${VERSION}-${CODENAME}${RELEASE}) ${CODENAME}; urgency=medium
+physlock (${VERSION}-${CODENAME}) ${CODENAME}; urgency=medium
 
   * Make deb package
 

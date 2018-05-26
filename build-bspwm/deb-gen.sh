@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 SRCDIR='src'
 WORKDIR=$(pwd)
 
@@ -20,7 +22,6 @@ cp -rv debian ${SRCDIR}/.
 
 export VERSION=$(cd src && git describe --long)
 export CODENAME=$(awk -F '=' '/CODENAME/ {print $2}' /etc/lsb-release)
-export RELEASE=$(date '+%Y%m%d%H%M%S')
 export DATE_RFC=$(date --rfc-2822)
 
 cat debian/changelog.tpl | envsubst | tee -a ${SRCDIR}/debian/changelog
@@ -30,3 +31,7 @@ tar -zcpf ../bspwm_${VERSION}.orig.tar.gz .
 
 export PREFIX=/usr
 debuild -S
+
+cd ${WORKDIR}
+CHANGEFILE=$(find . -name '*changes')
+dput ppa:drdeimosnn/survive-on-wm ${CHANGEFILE}

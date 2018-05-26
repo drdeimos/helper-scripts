@@ -4,6 +4,7 @@ Priority: extra
 Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
 Build-Depends: debhelper, libxcb-keysyms1-dev, libxcb-util-dev
 Standards-Version: 3.9.7
+Homepage: https://github.com/baskerville/sxhkd
 
 Package: sxhkd
 Architecture: amd64
