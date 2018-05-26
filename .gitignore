@@ -1,3 +1,4 @@
+# bspwm build files
 /build-bspwm/src
 /build-bspwm/bspwm_*.changes
 /build-bspwm/bspwm_*.deb
@@ -6,4 +7,26 @@
 /build-bspwm/bspwm_*.tar.xz
 /build-bspwm/bspwm_*.build
 /build-bspwm/bspwm_*.upload
+
+# sxhkd build files
+/build-sxhkd/src
+/build-sxhkd/sxhkd_*.changes
+/build-sxhkd/sxhkd_*.deb
+/build-sxhkd/sxhkd_*.dsc
+/build-sxhkd/sxhkd_*.tar.gz
+/build-sxhkd/sxhkd_*.tar.xz
+/build-sxhkd/sxhkd_*.build
+/build-sxhkd/sxhkd_*.upload
+
+# physlock build files
+/build-physlock/src
+/build-physlock/physlock_*.changes
+/build-physlock/physlock_*.deb
+/build-physlock/physlock_*.dsc
+/build-physlock/physlock_*.tar.gz
+/build-physlock/physlock_*.tar.xz
+/build-physlock/physlock_*.build
+/build-physlock/physlock_*.upload
+
+# Other temporary files
 *.swp

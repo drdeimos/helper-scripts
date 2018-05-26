@@ -1,0 +1,11 @@
+Source: physlock
+Section: universe/x11
+Priority: extra
+Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
+Build-Depends: debhelper, libpam0g-dev
+Standards-Version: 3.9.7
+
+Package: physlock
+Architecture: amd64
+Depends: libc6, libpam0g, libaudit1
+Description: Control physical access to a linux computer by locking all of its virtual terminals.

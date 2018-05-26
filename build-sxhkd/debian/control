@@ -1,0 +1,11 @@
+Source: sxhkd
+Section: universe/x11
+Priority: extra
+Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
+Build-Depends: debhelper, libxcb-keysyms1-dev, libxcb-util-dev
+Standards-Version: 3.9.7
+
+Package: sxhkd
+Architecture: amd64
+Depends: libxcb1, libxcb-keysyms1, libc6, libxau6, libxdmcp6
+Description: Simple X hotkey daemon
