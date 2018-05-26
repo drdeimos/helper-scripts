@@ -1,0 +1,12 @@
+Source: polybar
+Section: universe/x11
+Priority: extra
+Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
+Build-Depends: debhelper, libxcb-xinerama0-dev, cmake, libxcb-xkb-dev, libxcb-randr0-dev, libxcb-render-util0-dev, libxcb-icccm4-dev, libxcb-ewmh-dev, python-xcbgen, libiw-dev, libasound2-dev, libcurl4-openssl-dev, pkg-config, libcairo2-dev, libxcb-image0-dev, fontconfig, git, libxcb-util-dev, libpulse-dev, libxcb-cursor-dev
+Standards-Version: 3.9.7
+Homepage: https://github.com/jaagr/polybar
+
+Package: polybar
+Architecture: amd64
+Depends: libasn1-8-heimdal, libasound2, libasyncns0, libc6, libcairo2, libcomerr2, libcurl3, libdbus-1-3, libexpat1, libffi6, libflac8, libfontconfig1, libfreetype6, libgcc1, libgcrypt20, libgmp10, libgnutls30, libgpg-error0, libgssapi3-heimdal, libgssapi-krb5-2, libhcrypto4-heimdal, libheimbase1-heimdal, libheimntlm0-heimdal, libhogweed4, libhx509-5-heimdal, libidn11, libiw30, libjson-c2, libk5crypto3, libkeyutils1, libkrb5-26-heimdal, libkrb5-3, libkrb5support0, libldap-2.4-2, liblzma5, libnettle6, libogg0, libp11-kit0, libpcre3, libpixman-1-0, libpng12-0, libpulse0, libroken18-heimdal, librtmp1, libsasl2-2, libselinux1, libsndfile1, libsqlite3-0, libssl1.0.0, libstdc++6, libsystemd0, libtasn1-6, libvorbis0a, libvorbisenc2, libwind0-heimdal, libwrap0, libx11-6, libxau6, libxcb1, libxcb-cursor0, libxcb-ewmh2, libxcb-icccm4, libxcb-image0, libxcb-randr0, libxcb-render0, libxcb-render-util0, libxcb-shm0, libxcb-util1, libxcb-xkb1, libxdmcp6, libxext6, libxrender1, zlib1g
+Description: Polybar aims to help users build beautiful and highly customizable status bars for their desktop environment, without the need of having a black belt in shell scripting.

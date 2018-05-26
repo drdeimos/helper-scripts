@@ -28,5 +28,15 @@
 /build-physlock/physlock_*.build
 /build-physlock/physlock_*.upload
 
+# polybar build files
+/build-polybar/src
+/build-polybar/polybar_*.changes
+/build-polybar/polybar_*.deb
+/build-polybar/polybar_*.dsc
+/build-polybar/polybar_*.tar.gz
+/build-polybar/polybar_*.tar.xz
+/build-polybar/polybar_*.build
+/build-polybar/polybar_*.upload
+
 # Other temporary files
 *.swp
