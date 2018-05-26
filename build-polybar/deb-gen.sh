@@ -12,9 +12,11 @@ if [ -d ${SRCDIR} ]; then
   git clean -fd
   git checkout .
   git checkout master
-  git pull
+  git pull --recurse-submodules
 else
   git clone https://github.com/jaagr/polybar.git ${SRCDIR}
+  cd ${SRCDIR}
+  git submodule update --init --recursive
 fi
 
 cd ${WORKDIR}
