@@ -14,4 +14,4 @@ export PREFIX=/usr
 	dh $@
 
 override_dh_auto_build:
-	make -j4
+	make -j4 -e PREFIX=/usr -e VERSION=$(shell git describe --long --tags)

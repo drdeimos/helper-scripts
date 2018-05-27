@@ -14,8 +14,7 @@ if [ -d ${SRCDIR} ]; then
   git checkout master
   git pull
 else
-  #git clone https://github.com/muennich/physlock.git ${SRCDIR}
-  git clone https://github.com/drdeimos/physlock.git ${SRCDIR}
+  git clone https://github.com/muennich/physlock.git ${SRCDIR}
 fi
 
 cd ${WORKDIR}
@@ -33,6 +32,7 @@ tar -zcpf ../physlock_${VERSION}.orig.tar.gz .
 
 export PREFIX=/usr
 debuild -S
+
 
 cd ${WORKDIR}
 CHANGEFILE=$(find . -name '*changes')
