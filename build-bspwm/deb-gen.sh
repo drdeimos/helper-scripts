@@ -5,33 +5,47 @@ set -e
 SRCDIR='src'
 WORKDIR=$(pwd)
 
-rm -vf *.build *.changes *.dsc *.tar.gz *.tar.xz *.upload
+function clean {
+  cd ${WORKDIR}
+  rm -vf *.build *.changes *.dsc *.tar.gz *.tar.xz *.upload
+}
 
-if [ -d ${SRCDIR} ]; then
+function build {
+  export CODENAME=${1}
+
+  cd ${WORKDIR}
+  if [ -d ${SRCDIR} ]; then
+    cd ${SRCDIR}
+    git clean -fd
+    git checkout .
+    git checkout master
+    git pull
+  else
+    git clone https://github.com/baskerville/bspwm.git ${SRCDIR}
+  fi
+
+  cd ${WORKDIR}
+  cp -rv debian ${SRCDIR}/.
+
+  export VERSION=$(cd src && git describe --long)
+  export DATE_RFC=$(date --rfc-2822)
+
+  cat debian/changelog.tpl | envsubst | tee -a ${SRCDIR}/debian/changelog
+
   cd ${SRCDIR}
-  git clean -fd
-  git checkout .
-  git checkout master
-  git pull
-else
-  git clone https://github.com/baskerville/bspwm.git ${SRCDIR}
-fi
+  tar -zcpf ../bspwm_${VERSION}.orig.tar.gz .
 
-cd ${WORKDIR}
-cp -rv debian ${SRCDIR}/.
+  export PREFIX=/usr
+  debuild -S
 
-export VERSION=$(cd src && git describe --long)
-export CODENAME=$(awk -F '=' '/CODENAME/ {print $2}' /etc/lsb-release)
-export DATE_RFC=$(date --rfc-2822)
+  cd ${WORKDIR}
+  CHANGEFILE=$(find . -name '*changes')
+  dput ppa:drdeimosnn/survive-on-wm ${CHANGEFILE}
+}
 
-cat debian/changelog.tpl | envsubst | tee -a ${SRCDIR}/debian/changelog
-
-cd ${SRCDIR}
-tar -zcpf ../bspwm_${VERSION}.orig.tar.gz .
-
-export PREFIX=/usr
-debuild -S
-
-cd ${WORKDIR}
-CHANGEFILE=$(find . -name '*changes')
-dput ppa:drdeimosnn/survive-on-wm ${CHANGEFILE}
+# main
+BUILD_FOR="xenial bionic"
+for CODENAME in $BUILD_FOR; do
+  build ${CODENAME}
+  clean
+done

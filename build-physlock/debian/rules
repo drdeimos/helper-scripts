@@ -15,3 +15,5 @@ export PREFIX=/usr
 
 override_dh_auto_build:
 	make -j4 -e PREFIX=/usr -e VERSION=$(shell git describe --long --tags)
+override_dh_auto_install:
+	make -j1 -e PREFIX=/usr -e VERSION=$(shell git describe --long --tags) install DESTDIR=$$(pwd)/debian/physlock
