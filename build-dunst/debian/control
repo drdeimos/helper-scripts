@@ -8,5 +8,5 @@ Homepage: https://github.com/dunst-project/dunst
 
 Package: dunst
 Architecture: amd64
-Depends: libc6, libcairo2, libdatrie1, libexpat1, libffi6, libfontconfig1, libfreetype6, libgdk-pixbuf2.0-0, libglib2.0-0, libgraphite2-3, libharfbuzz0b, libpango-1.0-0, libpangocairo-1.0-0, libpangoft2-1.0-0, libpcre3, libpixman-1-0, libpng12-0, libselinux1, libthai0, libx11-6, libxau6, libxcb-render0, libxcb-shm0, libxcb1, libxdg-basedir1, libxdmcp6, libxext6, libxinerama1, libxrandr2, libxrender1, libxss1, zlib1g
+Depends: ${shlibs:Depends}
 Description: Dunst is a highly configurable and lightweight notification daemon.

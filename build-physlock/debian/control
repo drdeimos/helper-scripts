@@ -8,5 +8,5 @@ Homepage: https://github.com/muennich/physlock.git
 
 Package: physlock
 Architecture: amd64
-Depends: libc6, libpam0g, libaudit1
+Depends: ${shlibs:Depends}
 Description: Control physical access to a linux computer by locking all of its virtual terminals.

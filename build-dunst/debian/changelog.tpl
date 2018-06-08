@@ -1,4 +1,4 @@
-dunst (${VERSION}-${CODENAME}) ${CODENAME}; urgency=medium
+dunst (${VERSION}-${CODENAME}${RELEASE_NUM}) ${CODENAME}; urgency=medium
 
   * Make deb package
 

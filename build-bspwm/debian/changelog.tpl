@@ -1,4 +1,4 @@
-bspwm (${VERSION}-${CODENAME}) ${CODENAME}; urgency=medium
+bspwm (${VERSION}-${CODENAME}${RELEASE_NUM}) ${CODENAME}; urgency=medium
 
   * Make deb package
 

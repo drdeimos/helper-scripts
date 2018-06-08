@@ -8,5 +8,5 @@ Homepage: https://github.com/baskerville/bspwm
 
 Package: bspwm
 Architecture: amd64
-Depends: libc6, libxcb1, libxau6, libxcb-ewmh2, libxcb-icccm4, libxcb-keysyms1, libxcb-randr0, libxcb-util1, libxcb-xinerama0, libxdmcp6
+Depends: ${shlibs:Depends}
 Description: A tiling window manager based on binary space partitioning

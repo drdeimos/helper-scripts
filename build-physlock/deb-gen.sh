@@ -4,6 +4,7 @@ set -e
 
 SRCDIR='src'
 WORKDIR=$(pwd)
+export RELEASE_NUM=${1:-1}
 
 function clean {
   cd ${WORKDIR}

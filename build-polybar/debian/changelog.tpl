@@ -1,4 +1,4 @@
-polybar (${VERSION}-${CODENAME}) ${CODENAME}; urgency=medium
+polybar (${VERSION}-${CODENAME}${RELEASE_NUM}) ${CODENAME}; urgency=medium
 
   * Make deb package
 

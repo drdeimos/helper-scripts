@@ -8,5 +8,5 @@ Homepage: https://github.com/baskerville/sxhkd
 
 Package: sxhkd
 Architecture: amd64
-Depends: libxcb1, libxcb-keysyms1, libc6, libxau6, libxdmcp6
+Depends: ${shlibs:Depends}
 Description: Simple X hotkey daemon
