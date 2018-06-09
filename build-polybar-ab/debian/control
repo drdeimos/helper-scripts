@@ -1,0 +1,13 @@
+Source: polybar-ab
+Section: universe/x11
+Priority: extra
+Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
+Build-Depends: debhelper, git, golang, libnotify-dev
+Standards-Version: 3.9.7
+Homepage: https://github.com/drdeimos/polybar_another_battery
+
+Package: polybar-ab
+Architecture: amd64
+Depends: ${shlibs:Depends}
+Recommends: polybar
+Description: Simple battery charge level watcher with libnotify usage
