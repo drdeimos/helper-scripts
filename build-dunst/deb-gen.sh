@@ -32,6 +32,7 @@ function build {
   export DATE_RFC=$(date --rfc-2822)
 
   cat debian/changelog.tpl | envsubst | tee -a ${SRCDIR}/debian/changelog
+  echo ${VERSION} > ${SRCDIR}/VERSION
 
   cd ${SRCDIR}
   tar -zcpf ../dunst_${VERSION}.orig.tar.gz .
