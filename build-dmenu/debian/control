@@ -1,0 +1,12 @@
+Source: dmenu
+Section: universe/x11
+Priority: extra
+Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
+Build-Depends: debhelper (>= 9.20160115), libx11-dev, libxinerama-dev, libxft-dev
+Standards-Version: 3.9.7
+Homepage: https://tools.suckless.org/dmenu/
+
+Package: dmenu
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Dynamic menu for X, originally designed for dwm.
