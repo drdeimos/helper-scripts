@@ -35,7 +35,11 @@ function build {
   echo ${VERSION} > ${SRCDIR}/VERSION
 
   cd ${SRCDIR}
-  tar -zcpf ../dunst_${VERSION}.orig.tar.gz .
+  make clean
+  tar -Jcp \
+    --exclude='.git' \
+    --exclude='./debian' \
+    -f ../dunst_${VERSION}.orig.tar.xz .
 
   export PREFIX=/usr
   debuild -S

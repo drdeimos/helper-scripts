@@ -39,7 +39,11 @@ function build {
   echo ${VERSION} > ${SRCDIR}/VERSION
 
   cd ${SRCDIR}
-  tar -zcpf ../polybar-ab_${VERSION}.orig.tar.gz .
+  make clean
+  tar -Jcp \
+    --exclude='.git' \
+    --exclude='./debian' \
+    -f ../polybar-ab_${VERSION}.orig.tar.xz .
 
   export PREFIX=/usr
   debuild -S
