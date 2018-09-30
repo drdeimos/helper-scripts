@@ -2,7 +2,7 @@ Source: bspwm
 Section: universe/x11
 Priority: extra
 Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
-Build-Depends: debhelper, libxcb-xinerama0-dev, libxcb-icccm4-dev, libxcb-randr0-dev, libxcb-util-dev, libxcb-ewmh-dev, libxcb-keysyms1-dev
+Build-Depends: debhelper, libxcb-xinerama0-dev, libxcb-icccm4-dev, libxcb-randr0-dev, libxcb-util-dev, libxcb-ewmh-dev, libxcb-keysyms1-dev, libxcb-shape0-dev
 Standards-Version: 3.9.7
 Homepage: https://github.com/baskerville/bspwm
 

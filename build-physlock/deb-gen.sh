@@ -39,7 +39,7 @@ function build {
   tar -Jcp \
     --exclude='.git' \
     --exclude='./debian' \
-    -f ../physloc_${VERSION}.orig.tar.xz .
+    -f ../physlock_${VERSION}.orig.tar.xz .
 
   export PREFIX=/usr
   debuild -S
