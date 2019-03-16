@@ -1,0 +1,16 @@
+Index: src/Makefile
+===================================================================
+--- src.orig/Makefile
++++ src/Makefile
+@@ -3,10 +3,7 @@
+ 
+ include config.mk
+ 
+-VERSION := "1.3.2-non-git"
+-ifneq ($(wildcard ./.git/),)
+-VERSION := $(shell ${GIT} describe --tags)
+-endif
++VERSION := $(shell cat VERSION)
+ 
+ ifeq (,${SYSTEMD})
+ # Check for systemctl to avoid discrepancies on systems, where

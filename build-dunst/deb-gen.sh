@@ -8,7 +8,7 @@ export RELEASE_NUM=${1:-1}
 
 function clean {
   cd ${WORKDIR}
-  rm -vf *.build *.changes *.dsc *.tar.gz *.tar.xz *.upload
+  rm -vf *.build *.changes *.dsc *.tar.gz *.tar.xz *.upload *.buildinfo
 }
 
 function build {
@@ -36,22 +36,30 @@ function build {
 
   cd ${SRCDIR}
   make clean
-  tar -Jcp \
-    --exclude='.git' \
-    --exclude='./debian' \
-    -f ../dunst_${VERSION}.orig.tar.xz .
+  if [ ! -f "../dunst_${VERSION}.orig.tar.xz" ]; then
+    tar -Jcp \
+      --exclude='.git' \
+      --exclude='./debian' \
+      -f ../dunst_${VERSION}.orig.tar.xz .
+  fi
 
   export PREFIX=/usr
   debuild -S
+}
 
+function release {
   cd ${WORKDIR}
-  CHANGEFILE=$(find . -name '*changes')
-  dput ppa:drdeimosnn/survive-on-wm ${CHANGEFILE}
+  CHANGEFILES=$(find . -maxdepth 1 -name '*changes')
+  for FILE in ${CHANGEFILES};do
+    dput ppa:drdeimosnn/survive-on-wm ${FILE}
+  done
 }
 
 # main
 BUILD_FOR="xenial bionic"
 for CODENAME in $BUILD_FOR; do
   build ${CODENAME}
-  clean
 done
+
+release
+clean
