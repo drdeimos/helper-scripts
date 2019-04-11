@@ -38,7 +38,7 @@ function build {
   cat debian/changelog.tpl | envsubst | tee -a ${SRCDIR}/debian/changelog
 
   cd ${SRCDIR}
-  make clean
+  #make clean
   tar -Jcp \
     --exclude='.git' \
     --exclude='./debian' \
@@ -52,7 +52,7 @@ function build {
 }
 
 # main
-BUILD_FOR="xenial bionic"
+BUILD_FOR="bionic" # xenial now have dependency problems
 for CODENAME in $BUILD_FOR; do
   build ${CODENAME}
   clean
