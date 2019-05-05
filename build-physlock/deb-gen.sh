@@ -8,7 +8,7 @@ export RELEASE_NUM=${1:-1}
 
 function clean {
   cd ${WORKDIR}
-  rm -vf *.build *.changes *.dsc *.tar.gz *.tar.xz *.upload
+  rm -vf *.build *.changes *.dsc *.tar.gz *.tar.xz *.upload *.buildinfo
 }
 
 function build {
