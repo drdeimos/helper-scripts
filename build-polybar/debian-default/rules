@@ -13,5 +13,5 @@ export DH_VERBOSE=1
 	dh $@
 
 override_dh_auto_build:
-	cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr .
+	cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_INSTALL_PREFIX:PATH=/usr .
 	make

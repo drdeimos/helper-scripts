@@ -21,7 +21,6 @@ function build {
     git checkout master
     git checkout .
     git pull --recurse-submodules
-    #git checkout c2ac93db5533d2424e16a399d6777bb4caf2aace
   else
     git clone https://github.com/jaagr/polybar.git ${SRCDIR}
     cd ${SRCDIR}
@@ -30,12 +29,16 @@ function build {
   fi
 
   cd ${WORKDIR}
-  cp -rv debian ${SRCDIR}/.
+  if [ -d "debian-${CODENAME}" ]; then
+    cp -rv "debian-${CODENAME}" "${SRCDIR}/debian"
+  else
+    cp -rv "debian-default" "${SRCDIR}/debian"
+  fi
 
-  export VERSION=$(cd src && git describe --tags)
+  export VERSION="$(cd src && git describe --tags)-${RELEASE_NUM}"
   export DATE_RFC=$(date --rfc-2822)
 
-  cat debian/changelog.tpl | envsubst | tee -a ${SRCDIR}/debian/changelog
+  cat "${SRCDIR}/debian/changelog.tpl" | envsubst | tee -a "${SRCDIR}/debian/changelog"
 
   cd ${SRCDIR}
   #make clean
