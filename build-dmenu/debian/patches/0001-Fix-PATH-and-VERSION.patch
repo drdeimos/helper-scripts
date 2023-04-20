@@ -4,7 +4,7 @@ Index: src/config.mk
 +++ src/config.mk
 @@ -1,8 +1,8 @@
  # dmenu version
--VERSION = 4.9
+-VERSION = 5.1
 +VERSION = VERSION_CHANGEME
  
  # paths

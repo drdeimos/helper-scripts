@@ -58,7 +58,7 @@ function release {
 }
 
 # main
-BUILD_FOR="jammy"
+BUILD_FOR="focal jammy"
 for CODENAME in $BUILD_FOR; do
   build ${CODENAME}
 done

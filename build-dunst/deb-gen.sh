@@ -28,7 +28,7 @@ function build {
   cd ${WORKDIR}
   cp -rv debian ${SRCDIR}/.
 
-  export VERSION=$(cd src && git describe --long | sed 's/^v//')
+  export VERSION="$(cd src && git describe --long | sed 's/^v//')-${RELEASE_NUM}"
   export DATE_RFC=$(date --rfc-2822)
 
   cat debian/changelog.tpl | envsubst | tee -a ${SRCDIR}/debian/changelog
@@ -56,7 +56,7 @@ function release {
 }
 
 # main
-BUILD_FOR="xenial bionic"
+BUILD_FOR="focal jammy"
 for CODENAME in $BUILD_FOR; do
   build ${CODENAME}
 done

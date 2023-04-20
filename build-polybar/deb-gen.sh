@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 
 SRCDIR='src'
 WORKDIR=$(pwd)
@@ -17,10 +17,11 @@ function build {
   cd ${WORKDIR}
   if [ -d ${SRCDIR} ]; then
     cd ${SRCDIR}
-    git clean -fd
+    git clean -fdx
     git checkout master
     git checkout .
     git pull --recurse-submodules
+    git submodule update --init --recursive
   else
     git clone https://github.com/jaagr/polybar.git ${SRCDIR}
     cd ${SRCDIR}
@@ -41,7 +42,6 @@ function build {
   cat "${SRCDIR}/debian/changelog.tpl" | envsubst | tee -a "${SRCDIR}/debian/changelog"
 
   cd ${SRCDIR}
-  #make clean
   tar -Jcp \
     --exclude='.git' \
     --exclude='./debian' \
@@ -55,7 +55,7 @@ function build {
 }
 
 # main
-BUILD_FOR="bionic" # xenial now have dependency problems
+BUILD_FOR="focal jammy"
 for CODENAME in $BUILD_FOR; do
   build ${CODENAME}
   clean

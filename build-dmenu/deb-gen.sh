@@ -55,7 +55,7 @@ function release {
 }
 
 # main
-BUILD_FOR="xenial bionic"
+BUILD_FOR="focal jammy"
 for CODENAME in $BUILD_FOR; do
   build ${CODENAME}
 done

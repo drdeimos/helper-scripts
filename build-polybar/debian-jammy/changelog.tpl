@@ -1,4 +1,4 @@
-dunst (${VERSION}-${CODENAME}) ${CODENAME}; urgency=medium
+polybar (${VERSION}-${CODENAME}) ${CODENAME}; urgency=medium
 
   * Make deb package
 
