@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -xe
 
 SRCDIR='src'
 WORKDIR=$(pwd)
@@ -8,7 +8,7 @@ export RELEASE_NUM=${1:-1}
 
 function clean {
   cd ${WORKDIR}
-  rm -vf *.build *.changes *.dsc *.tar.gz *.tar.xz *.upload
+  rm -vf *.build *.changes *.dsc *.tar.gz *.tar.xz *.upload *.buildinfo
 }
 
 function build {
@@ -28,16 +28,20 @@ function build {
   fi
 
   cd ${WORKDIR}
-  cp -rv debian ${SRCDIR}/.
+  if [ -d "debian-${CODENAME}" ]; then
+    rsync -rLptgoDAXv "debian-${CODENAME}/" "${SRCDIR}/debian"
+  else
+    rsync -rLptgoDAXv debian-default/ "${SRCDIR}/debian"
+  fi
 
   export VERSION="$(cd src && git describe --long --tags | sed 's/^v//')-${RELEASE_NUM}"
   export DATE_RFC=$(date --rfc-2822)
 
-  cat debian/changelog.tpl | envsubst | tee -a ${SRCDIR}/debian/changelog
+  cat ${SRCDIR}/debian/changelog.tpl | envsubst | tee -a ${SRCDIR}/debian/changelog
 
   cd ${SRCDIR}
   git submodule update --init --recursive
-  #make clean
+
   if [ ! -f "../rofi_${VERSION}.orig.tar.xz" ]; then
     tar -Jcp \
       --exclude='.git' \
@@ -45,8 +49,8 @@ function build {
       -f ../rofi_${VERSION}.orig.tar.xz .
   fi
 
-  debuild -S
-  #debuild -b
+  debuild -S --no-check-builddeps
+  #debuild -b --no-check-builddeps
 }
 
 function release {
