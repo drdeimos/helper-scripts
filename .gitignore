@@ -1,12 +1,15 @@
 # build files
 /build-*/src
+/build-*/src.bak
 /build-*/*.changes
 /build-*/*.deb
+/build-*/*.ddeb
 /build-*/*.dsc
 /build-*/*.tar.gz
 /build-*/*.tar.xz
 /build-*/*.build
 /build-*/*.upload
+/build-*/*.buildinfo
 
 # Other temporary files
 *.swp
