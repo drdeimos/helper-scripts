@@ -25,6 +25,7 @@ function build {
     git clone https://github.com/davatorium/rofi.git ${SRCDIR}
     cd ${SRCDIR}
     git checkout next
+    git pull
   fi
 
   cd ${WORKDIR}
