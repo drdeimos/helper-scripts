@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+%:
+	dh $@ --buildsystem=meson
+
+override_dh_update_autotools_config:
+
+override_dh_autoreconf:
+
+override_dh_auto_configure:
+	meson setup build --prefix /usr
+
+override_dh_auto_build:
+	ninja -C build
+
+override_dh_auto_test:
+	ninja -C build test
+
+override_dh_auto_install:
+
+override_dh_install:
+	DESTDIR=../debian/rofi-wayland ninja -C build install
+	pwd
+	mkdir -p debian/rofi-wayland-dev
+	mv -vi debian/rofi-wayland/usr/include debian/rofi-wayland-dev/.
+	mv -vi debian/rofi-wayland/usr/lib debian/rofi-wayland-dev/.

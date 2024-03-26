@@ -1,0 +1,64 @@
+Source: rofi-wayland
+Section: x11
+Priority: optional
+Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
+Build-Depends: debhelper-compat (= 12),
+               dh-autoreconf,
+               bison,
+               flex,
+               libpango1.0-dev,
+               libgdk-pixbuf-2.0-dev,
+               libstartup-notification0-dev,
+               libxkbcommon-dev (>= 0.5.0),
+               libxkbcommon-x11-dev (>= 0.5.0),
+               libxcb1-dev,
+               libxcb-cursor-dev,
+               libxcb-ewmh-dev,
+               libxcb-icccm4-dev,
+               libxcb-randr0-dev,
+               libxcb-util0-dev,
+               libxcb-xinerama0-dev,
+               libxcb-xkb-dev
+Standards-Version: 4.4.0
+Homepage: https://github.com/DaveDavenport/rofi/
+Vcs-Git: https://salsa.debian.org/jpleau-guest/rofi
+Vcs-Browser: https://salsa.debian.org/jpleau-guest/rofi
+
+Package: rofi-wayland
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends},
+Description: window switcher, run dialog and dmenu replacement
+ rofi can act as an application launcher, window switcher, ssh launcher and
+ dmenu replacement.
+ .
+ Included features:
+  * Full (configurable) keyboard navigation
+  * Type to filter
+    + Tokenized: Type any word in any order to filter
+    + Case insensitive
+  * UTF-8 enabled
+    + UTF-8 aware string collating
+    + intl. keyboard support (`e -> è)
+  * Pango font rendering
+  * RTL language support
+  * Window Switcher
+    + I3 support (requires i3-wm to be installed)
+    + EWMH compatible WM
+  * Run dialog
+  * Desktop File Run dialog
+  * SSH launcher
+  * History based ordering based on use. (optional)
+  * Levenshtein distance ordering of matches. (optional)
+  * Drop in dmenu replacement (with many added improvements).
+  * Can be easily extended using scripts.
+
+Package: rofi-wayland-dev
+Architecture: amd64
+Depends: rofi (= ${binary:Version}),
+         ${misc:Depends},
+         libglib2.0-dev (>= 2.40),
+         libcairo2-dev
+Description: development files for rofi
+ This package provides headers to allow development of plugins for rofi.
+ .
+ rofi is a window switcher, run dialog and dmenu replacement
