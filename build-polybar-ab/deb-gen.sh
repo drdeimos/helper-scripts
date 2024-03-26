@@ -27,7 +27,8 @@ function build {
 
   cd ${WORKDIR}/${SRCDIR}
   export GOPATH=$(pwd)/go
-  go get -v -d -u github.com/distatus/battery/cmd/battery
+  go get -v -d -u github.com/distatus/battery/cmd/battery@v0.11.0
+  go get -v -d -u github.com/godbus/dbus/v5@v5.1.0
 
   cd ${WORKDIR}
   cp -rv debian ${SRCDIR}/.
@@ -46,7 +47,7 @@ function build {
     -f ../polybar-ab_${VERSION}.orig.tar.xz .
 
   export PREFIX=/usr
-  debuild -S
+  debuild -S --no-check-builddeps
 
   cd ${WORKDIR}
   CHANGEFILE=$(find . -name '*changes')
