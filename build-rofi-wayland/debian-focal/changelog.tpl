@@ -1,1 +1,0 @@
-../debian-default/changelog.tpl
