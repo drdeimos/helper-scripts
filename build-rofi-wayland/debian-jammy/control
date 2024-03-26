@@ -2,16 +2,18 @@ Source: rofi-wayland
 Section: x11
 Priority: optional
 Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
-Build-Depends: debhelper-compat (= 12),
+Build-Depends: bison,
+               check,
+               cppcheck,
+               debhelper-compat (= 12),
                dh-autoreconf,
-               bison,
+               doxygen,
                flex,
-               libpango1.0-dev,
                libgdk-pixbuf-2.0-dev,
+               libnl-3-dev,
+               libpango1.0-dev,
                libstartup-notification0-dev,
-               libxkbcommon-dev (>= 0.5.0),
-               libxkbcommon-x11-dev (>= 0.5.0),
-               libxcb1-dev,
+               libwayland-dev,
                libxcb-cursor-dev,
                libxcb-ewmh-dev,
                libxcb-icccm4-dev,
@@ -19,13 +21,13 @@ Build-Depends: debhelper-compat (= 12),
                libxcb-util0-dev,
                libxcb-xinerama0-dev,
                libxcb-xkb-dev,
-               libwayland-dev,
-               libnl-3-dev,
-               check,
-               pandoc,
-               doxygen,
-               cppcheck,
-               ohcount
+               libxcb1-dev,
+               libxkbcommon-dev (>= 0.5.0),
+               libxkbcommon-x11-dev (>= 0.5.0),
+               meson,
+               ninja-build,
+               ohcount,
+               pandoc
 Standards-Version: 4.4.0
 Homepage: https://github.com/lbonn/rofi/
 Vcs-Git: https://salsa.debian.org/jpleau-guest/rofi
