@@ -27,7 +27,8 @@ Build-Depends: bison,
                meson,
                ninja-build,
                ohcount,
-               pandoc
+               pandoc,
+               wayland-protocols
 Standards-Version: 4.4.0
 Homepage: https://github.com/lbonn/rofi/
 Vcs-Git: https://salsa.debian.org/jpleau-guest/rofi

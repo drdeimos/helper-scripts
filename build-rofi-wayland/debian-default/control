@@ -2,31 +2,16 @@ Source: rofi-wayland
 Section: x11
 Priority: optional
 Maintainer: Mikhail Nosov <drdeimosnn@gmail.com>
-Build-Depends: debhelper-compat (= 12),
-               dh-autoreconf,
-               bison,
-               flex,
-               libpango1.0-dev,
-               libgdk-pixbuf-2.0-dev,
-               libstartup-notification0-dev,
-               libxkbcommon-dev (>= 0.5.0),
-               libxkbcommon-x11-dev (>= 0.5.0),
-               libxcb1-dev,
-               libxcb-cursor-dev,
-               libxcb-ewmh-dev,
-               libxcb-icccm4-dev,
-               libxcb-randr0-dev,
-               libxcb-util0-dev,
-               libxcb-xinerama0-dev,
-               libxcb-xkb-dev
 Standards-Version: 4.4.0
-Homepage: https://github.com/DaveDavenport/rofi/
+Homepage: https://github.com/lbonn/rofi/
 Vcs-Git: https://salsa.debian.org/jpleau-guest/rofi
 Vcs-Browser: https://salsa.debian.org/jpleau-guest/rofi
 
 Package: rofi-wayland
 Architecture: amd64
 Depends: ${shlibs:Depends}, ${misc:Depends},
+Provides: rofi
+Conflicts: rofi
 Description: window switcher, run dialog and dmenu replacement
  rofi can act as an application launcher, window switcher, ssh launcher and
  dmenu replacement.
@@ -54,10 +39,12 @@ Description: window switcher, run dialog and dmenu replacement
 
 Package: rofi-wayland-dev
 Architecture: amd64
-Depends: rofi (= ${binary:Version}),
+Depends: rofi-wayland (= ${binary:Version}),
          ${misc:Depends},
          libglib2.0-dev (>= 2.40),
          libcairo2-dev
+Provides: rofi-dev
+Conflicts: rofi-dev
 Description: development files for rofi
  This package provides headers to allow development of plugins for rofi.
  .
