@@ -66,7 +66,7 @@ function release {
 }
 
 # main
-BUILD_FOR="jammy"
+BUILD_FOR="jammy noble"
 for CODENAME in $BUILD_FOR; do
   build ${CODENAME}
 done
